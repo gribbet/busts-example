@@ -35,14 +35,6 @@ const node1 = createNode(channel);
 const node2 = createNode(channel);
 const node3 = createNode(channel);
 
-const heartbeat1 = createClient(node1, heartbeatService);
-const heartbeat2 = createClient(node2, heartbeatService);
-
-setInterval(async () => {
-  await heartbeat1.heartbeat({ timestamp: Date.now() });
-  await heartbeat2.heartbeat({ timestamp: Date.now() });
-}, 1000);
-
 createServer(node1, infoService, {
   name: () => "Node 1",
 });
@@ -58,3 +50,11 @@ createServer(node3, heartbeatService, {
     console.log(`Node ${source?.toString(16).padStart(8, "0")}: ${name}`);
   },
 });
+
+const heartbeat1 = createClient(node1, heartbeatService);
+const heartbeat2 = createClient(node2, heartbeatService);
+
+setInterval(async () => {
+  await heartbeat1.heartbeat({ timestamp: Date.now() });
+  await heartbeat2.heartbeat({ timestamp: Date.now() });
+}, 1000);
