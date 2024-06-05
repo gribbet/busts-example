@@ -1,0 +1,21 @@
+{
+  "name": "busts-example",
+  "version": "1.0.0",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gribbet/busts-example.git"
+  },
+  "scripts": {
+    "dev": "tsx src/main.ts",
+    "build": "tsc",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@gribbet/eslint-config": "github:gribbet/eslint-config",
+    "@types/node": "^20.12.13",
+    "busts": "^0.1.2",
+    "tsx": "^4.11.0",
+    "typescript": "^5.3.3"
+  }
+}
